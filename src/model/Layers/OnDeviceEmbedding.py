@@ -24,7 +24,7 @@ class OnDeviceEmbeddingLayer(tf.keras.layers.Layer):
         self.embeddings_var = tf.Variable(
             initial_value=self.initializer(shape=(self.vocab_size, self.embedding_width)),
             trainable=True,
-            name=self.name,
+            name="embeddings",
         )
         
     def call(self, inputs, training=None, *args, **kwargs):

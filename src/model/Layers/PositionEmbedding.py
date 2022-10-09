@@ -21,7 +21,7 @@ class PositionEmbedding(tf.keras.layers.Layer):
         self.embeddings = tf.Variable(
             initial_value=self.initializer(shape=(self.max_length, input_shape[-1])),
             trainable=True,
-            name=self.name,
+            name="embeddings",
         )
 
     def call(self, inputs, training=None, *args, **kwargs):
