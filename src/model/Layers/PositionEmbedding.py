@@ -7,9 +7,13 @@ def create_PositionEmbedding(
     max_length: int,
     name: str = "position_embedding",
 ) -> Callable:
+    """
+    base on https://github.com/tensorflow/models/blob/11b3662b3e3e1751a2b4285ea122c951796f2969/official/nlp/modeling/layers/position_embedding.py#L28
+    """
+
     def PositionEmbedding(inputs: tf.Variable) -> tf.Variable:
         embeddings = tf.Variable(
-            initial_value=initializer,
+            initial_value=initializer(shape=(max_length, inputs.shape[-1])),
             trainable=True,
             name=name,
         )

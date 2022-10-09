@@ -37,9 +37,7 @@ def create_bert_encoder(
     The default values for this object are taken from the BERT-Base implementation
     in "BERT: Pre-training of Deep Bidirectional Transformers for Language
     Understanding".
-    This implementation is based on (https://github.com/tensorflow/models/blob/
-    11b3662b3e3e1751a2b4285ea122c951796f2969/official/nlp/modeling/networks/
-    bert_encoder.py#L318.)
+    This implementation is based on (https://github.com/tensorflow/models/blob/11b3662b3e3e1751a2b4285ea122c951796f2969/official/nlp/modeling/networks/bert_encoder.py#L318.)
 
     Args:
       vocab_size: The size of the token vocabulary.
@@ -182,6 +180,6 @@ def create_bert_encoder(
         encoder_outputs=encoder_outputs,
     )
     if return_attention_scores:
-        outputs['attention_scores'] = attention_outputs
-        
+        outputs["attention_scores"] = attention_outputs
+
     return tf.keras.Model(inputs=[word_ids, mask, type_ids], outputs=outputs)

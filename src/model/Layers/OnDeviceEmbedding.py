@@ -10,9 +10,13 @@ def create_OnDeviceEmbedding(
     name: str = "word_embeddings",
     use_one_hot: bool = False,
 ) -> Callable:
+    """
+    based on https://github.com/tensorflow/models/blob/11b3662b3e3e1751a2b4285ea122c951796f2969/official/nlp/modeling/layers/on_device_embedding.py#L22
+    """
+
     def OnDeviceEmbeddingLayer(inputs: tf.Variable) -> tf.Variable:
         embeddings_var = tf.Variable(
-            initial_value=initializer,
+            initial_value=initializer(shape=(vocab_size, embedding_width)),
             trainable=True,
             name=name,
         )

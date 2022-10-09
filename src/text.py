@@ -14,9 +14,9 @@ if not os.path.exists(os.path.join(os.path.dirname(current_path), "bert_data")):
 
 os.chdir(os.path.join(os.path.dirname(current_path), "bert_data"))
 initial_list = os.listdir()
-os.system(f'wget "{tfhub_handle_encoder}"')
-downloaded_file = list(set(os.listdir()) - set(initial_list))[0]
 if bert_model_name not in os.listdir():
+    os.system(f'wget "{tfhub_handle_encoder}"')
+    downloaded_file = list(set(os.listdir()) - set(initial_list))[0]
     os.mkdir(bert_model_name)
     os.rename(
         downloaded_file, os.path.join(bert_model_name, f"{bert_model_name}.tar.gz")
@@ -30,7 +30,6 @@ os.chdir(current_path)
 
 import json
 import re
-import copy
 
 bert_config_path = "bert_config.json"
 
@@ -42,7 +41,7 @@ with open(bert_config_path, "r") as f:
 
 from loader import load_bert_model
 
-load_bert_model(
+bert_model = load_bert_model(
     bert_config_path=bert_config_path,
     weights_path=os.path.join(
         os.path.dirname(current_path),
@@ -52,3 +51,4 @@ load_bert_model(
         "variables.data-00000-of-00001",
     ),
 )
+bert_model.summary()

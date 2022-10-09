@@ -24,7 +24,7 @@ def create_TransformerEncoderBlock(
     _inner_dim = inner_dim
     _output_range = None
     _norm_first = norm_first
-    _norm_epsilon = (1e-12,)
+    _norm_epsilon = 1e-12
     _attention_layer_norm = tf.keras.layers.LayerNormalization(
         name=f"{name}/self_attention_layer_norm",
         axis=-1,
