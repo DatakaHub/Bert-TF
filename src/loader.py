@@ -1,4 +1,5 @@
 from model.bert_architecture import create_bert_encoder
+from convertor.Assignement import assign_trained_weights
 import tensorflow as tf
 import json
 
@@ -16,7 +17,7 @@ def load_bert_model(bert_config_path: str, weights_path: str) -> tf.keras.Model:
     with open(bert_config_path, "r") as f:
         bert_config = json.load(f)
 
-    return create_bert_encoder(
+    bert_model = create_bert_encoder(
         vocab_size=bert_config["vocab_size"],
         hidden_size=bert_config["hidden_size"],
         initializer=tf.keras.initializers.TruncatedNormal(
@@ -26,3 +27,5 @@ def load_bert_model(bert_config_path: str, weights_path: str) -> tf.keras.Model:
         num_attention_heads=bert_config["num_attention_heads"],
         type_vocab_size=bert_config["type_vocab_size"],
     )
+    assign_trained_weights(bert_model, weights_path)
+    return bert_model

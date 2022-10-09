@@ -47,8 +47,6 @@ bert_model = load_bert_model(
         os.path.dirname(current_path),
         "bert_data",
         bert_model_name,
-        "variables",
-        "variables.data-00000-of-00001",
+        "saved_model.pb"
     ),
 )
-bert_model.summary()
