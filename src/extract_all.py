@@ -9,7 +9,7 @@ def retrieve_hub_data(bert_model_name: str) -> str:
     """
     This function downloads the bert files from tensorflow hub and uncompress them.
     To do so this function requires wget to be installed
-    
+
     Args:
         bert_model_name: name of the bert model (has to be defined in bert_urls.py)
     """

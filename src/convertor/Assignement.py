@@ -1,3 +1,4 @@
+from copy import Error
 from typing import Any, Dict
 import tensorflow as tf
 
@@ -11,7 +12,7 @@ def assign_trained_weights(bert_model: tf.keras.Model, weights_path: str):
         if weight.name in match_var_dict:
             weight.assign(match_var_dict[weight.name])
         else:
-            print(f"missing {weight.name}")
+            raise Error((f"missing {weight.name} in {bert_model.name}"))
 
 
 def get_bert_config(weights_path: str) -> Dict[str, Any]:
