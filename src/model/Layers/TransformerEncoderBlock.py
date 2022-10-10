@@ -14,6 +14,22 @@ def create_TransformerEncoderBlock(
     kernel_initializer: tf.keras.initializers.Initializer,
     name: str,
 ) -> Callable:
+    """
+    This function creates a callable function that serves as a transformer block.
+    This is a definition of the MultiHeadSelfAttention block that are used in Bert, but also in ViT, DeiT and CaiT,...
+
+    Args:
+        hidden_size: int
+        num_attention_heads: int,
+        inner_dim: int,
+        inner_activation: tf.keras.layers.Activation,
+        output_dropout: float,
+        attention_dropout: float,
+        norm_first: bool,
+        return_attention_scores: bool,
+        kernel_initializer: tf.keras.initializers.Initializer,
+        name: str,
+    """
     common_kwargs = dict(
         bias_regularizer=None,
         activity_regularizer=None,

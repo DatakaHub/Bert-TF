@@ -6,6 +6,13 @@ import tensorflow as tf
 
 
 def retrieve_hub_data(bert_model_name: str) -> str:
+    """
+    This function downloads the bert files from tensorflow hub and uncompress them.
+    To do so this function requires wget to be installed
+    
+    Args:
+        bert_model_name: name of the bert model (has to be defined in bert_urls.py)
+    """
     tfhub_handle_encoder = map_name_to_handle[bert_model_name]
     current_path = os.getcwd()
     print()
@@ -36,18 +43,11 @@ def retrieve_hub_data(bert_model_name: str) -> str:
     )
 
 
-def extract_model(weights_path: str, save_path: str) -> tf.keras.Model:
-    return load_bert_model(
-        weights_path=weights_path,
-        save_path=save_path,
-    )
-
-
 if __name__ == "__main__":
     for key in list(map_name_to_handle.keys()):
         print(f"extracting {key}")
         weights_path = retrieve_hub_data(bert_model_name=key)
-        extract_model(
+        load_bert_model(
             weights_path=weights_path,
             save_path=os.path.join(
                 os.path.dirname(os.getcwd()),
