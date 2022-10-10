@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, Type
 import tensorflow as tf
 
-
+@tf.keras.utils.register_keras_serializable()
 class PositionEmbedding(tf.keras.layers.Layer):
     def __init__(
         self,

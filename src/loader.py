@@ -18,6 +18,7 @@ def load_bert_model(weights_path: str, save_path:str = "") -> tf.keras.Model:
     bert_model = create_bert_encoder(
         vocab_size=bert_config["vocab_size"],
         hidden_size=bert_config["hidden_size"],
+        num_layers=bert_config["num_layers"],
         initializer=tf.keras.initializers.TruncatedNormal(
             stddev=bert_config["initializer_range"]
         ),

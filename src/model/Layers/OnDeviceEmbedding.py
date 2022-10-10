@@ -2,7 +2,7 @@ from typing import Any, Callable, Dict, Type
 import tensorflow as tf
 import numpy as np
 
-
+@tf.keras.utils.register_keras_serializable()
 class OnDeviceEmbeddingLayer(tf.keras.layers.Layer):
     def __init__(self, 
             vocab_size: int, 

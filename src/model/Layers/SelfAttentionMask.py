@@ -1,7 +1,7 @@
 from typing import Callable, Tuple
 import tensorflow as tf
 
-
+@tf.keras.utils.register_keras_serializable()
 def create_SelfAttentionMask() -> Callable:
     """
     based on https://github.com/tensorflow/models/blob/11b3662b3e3e1751a2b4285ea122c951796f2969/official/nlp/modeling/layers/self_attention_mask.py#L49
