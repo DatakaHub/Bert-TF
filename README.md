@@ -7,7 +7,7 @@ This implementation uses tf.keras.layers.EinsumDense which are part of release t
 
 ## Tutorial
 
-You can use the [loading tutorial](src/LoadingExample.ipynb) on how to load and convert a bert mdoel. You will ned tensorflow 2.10+ and wget.
+You can use the [loading tutorial](src/LoadingExample.ipynb) on how to load and convert a bert mdoel. You will need tensorflow 2.10+ and wget.
 
 ## How to use
 
