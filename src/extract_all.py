@@ -43,7 +43,7 @@ def retrieve_hub_data(bert_model_name: str) -> str:
     )
 
 
-if __name__ == "__main__":
+def all_extract():
     for key in list(map_name_to_handle.keys()):
         print(f"extracting {key}")
         weights_path = retrieve_hub_data(bert_model_name=key)
@@ -55,3 +55,7 @@ if __name__ == "__main__":
                 f"{key}.h5",
             ),
         )
+
+
+if __name__ == "__main__":
+    all_extract()

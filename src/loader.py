@@ -1,7 +1,6 @@
 from model.bert_architecture import create_bert_encoder
 from convertor.Assignement import assign_trained_weights, get_bert_config
 import tensorflow as tf
-import json
 
 
 def load_bert_model(weights_path: str, save_path:str = "") -> tf.keras.Model:
