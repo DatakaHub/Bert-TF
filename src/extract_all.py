@@ -2,7 +2,6 @@ from bert_urls import map_name_to_handle
 import os
 import tarfile
 from loader import load_bert_model
-import tensorflow as tf
 
 
 def retrieve_hub_data(bert_model_name: str) -> str:
