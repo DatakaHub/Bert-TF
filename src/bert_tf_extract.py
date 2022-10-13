@@ -1,5 +1,5 @@
 import argparse
-from bert_urls import map_name_to_handle
+from src.bert_urls import map_name_to_handle
 
 if __name__ == "__main__":
 
@@ -21,8 +21,8 @@ if __name__ == "__main__":
         help="where to save the model",
     )
     args = parser.parse_args()
-    from loader import load_bert_model
-    from extract_all import retrieve_hub_data, all_extract
+    from src.loader import load_bert_model
+    from src.extract_all import retrieve_hub_data, all_extract
 
     if args.model_name == "all":
         all_extract()

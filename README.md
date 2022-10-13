@@ -17,12 +17,11 @@ If you want to extract a bert once and use in another script, you will need some
 
 To extract all bert models :
 ```
-python -m bert_tf_extract --model_name all
+python -m src.bert_tf_extract --model_name all
 ```
-
 To extract a specific bert model :
 ```
-python -m bert_tf_extract --model_name bert_en_wwm_uncased_L-24_H-1024_A-16 --saveh5 /path/to/my_bert_tf.h5
+python -m src.bert_tf_extract --model_name bert_en_wwm_uncased_L-24_H-1024_A-16 --saveh5 my_bert_tf.h5
 ```
 
 ## How to infer with Bert

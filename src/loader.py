@@ -1,9 +1,9 @@
-from model.bert_architecture import create_bert_encoder
-from convertor.Assignement import assign_trained_weights, get_bert_config
+from src.model.bert_architecture import create_bert_encoder
+from src.convertor.Assignement import assign_trained_weights, get_bert_config
 import tensorflow as tf
 
 
-def load_bert_model(weights_path: str, save_path:str = "") -> tf.keras.Model:
+def load_bert_model(weights_path: str, save_path: str = "") -> tf.keras.Model:
     """
     In order to create the Bert encoder model, we need some hyper-parameters
     which are stored in the config json file as well as the pre-trained weights.
