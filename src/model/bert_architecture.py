@@ -25,7 +25,7 @@ def create_bert_encoder(
     embedding_layer: Any = None,
     norm_first: bool = False,
     return_attention_scores: bool = False,
-    **kwargs
+    **kwargs,
 ) -> tf.keras.Model:
     """
     Bi-directional Transformer-based encoder network.
@@ -146,11 +146,15 @@ def create_bert_encoder(
         transformer_output_range = None
         if i == num_layers - 1:
             transformer_output_range = output_range
+        cloned_activation = type(inner_activation).from_config(
+            inner_activation.get_config()
+        )
+        cloned_activation._name = f"{cloned_activation.name}_{i}"
         layer = create_TransformerEncoderBlock(
             hidden_size=hidden_size,
             num_attention_heads=num_attention_heads,
             inner_dim=inner_dim,
-            inner_activation=inner_activation,
+            inner_activation=cloned_activation,
             output_dropout=output_dropout,
             attention_dropout=attention_dropout,
             norm_first=norm_first,
